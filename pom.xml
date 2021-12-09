@@ -50,11 +50,11 @@
 					</cloudHubDeployment>
 					<sharedLibraries>
 						<sharedLibrary>
-							<groupId>org.postgresql</groupId>
+							<groupId>org.postgresql.postgresql</groupId>
 							<artifactId>postgresql-42.3.1</artifactId>
 						</sharedLibrary>
 						<sharedLibrary>
-							<groupId>org.postgresql</groupId>
+							<groupId>org.postgresql.postgresql</groupId>
 							<artifactId>postgresql</artifactId>
 						</sharedLibrary>
 					</sharedLibraries>
@@ -119,12 +119,12 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>org.postgresql</groupId>
+			<groupId>org.postgresql.postgresql</groupId>
 			<artifactId>postgresql-42.3.1</artifactId>
 			<version>42.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.postgresql</groupId>
+			<groupId>org.postgresql.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.3.1</version>
 		</dependency>
