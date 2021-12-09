@@ -50,7 +50,7 @@
 					</cloudHubDeployment>
 					<sharedLibraries>
 						<sharedLibrary>
-							<groupId>com.postgresql</groupId>
+							<groupId>org.postgresql</groupId>
 							<artifactId>postgresql-42.3.1</artifactId>
 						</sharedLibrary>
 						<sharedLibrary>
