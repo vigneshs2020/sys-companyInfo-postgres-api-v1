@@ -119,7 +119,7 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>com.postgresql</groupId>
+			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql-42.3.1</artifactId>
 			<version>42.3.1</version>
 		</dependency>
