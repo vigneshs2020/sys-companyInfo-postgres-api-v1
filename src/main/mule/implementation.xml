@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="selectFlow" doc:id="fc3a8f6e-eba7-42b3-8a1d-39a51a2d45fd" >
+		<db:select doc:name="Select" doc:id="58f7b0e2-cf51-499c-8133-ab5c656c677d" config-ref="Database_Config">
+			<db:sql ><![CDATA[SELECT * FROM public."CompanyInfo" WHERE "Id" = :id]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{id: attributes.queryParams.id as Number}]]]></db:input-parameters>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="5a03744c-afd5-4b9d-b34b-0e6304d09d7f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="updateFlow" doc:id="e773468c-fb7c-461a-b752-16c1d324899f" >
+		<db:update doc:name="Update" doc:id="4caebbb1-356c-4962-8f62-413fe2db0f9b" config-ref="Database_Config">
+			<db:sql ><![CDATA[UPDATE public."CompanyInfo"	SET "InsuranceQuotation"=:quoresp WHERE "Id"=:id]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	'quoresp': write(payload,"application/json"),
+	'id': attributes.queryParams.id
+}]]]></db:input-parameters>
+		</db:update>
+		<ee:transform doc:name="Transform Message" doc:id="0a43356c-2c66-40eb-af5a-fd022cdec05d" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"message":"success"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

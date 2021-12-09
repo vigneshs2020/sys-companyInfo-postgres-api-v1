@@ -1,0 +1,5 @@
+db:
+  postgres:
+    url: "jdbc:postgresql://ec2-54-225-203-79.compute-1.amazonaws.com:5432/df4u3rfsn6ijra?sslmode=require"
+    user: "azqbdnakvtprpg"
+    password: "![oou3Pijz8LuEayYKmIBhEooihgUQwWaXwMMAtsTIeZyUcU1OS62E7Q7K1hbSZEOCNciQDS1vBrhewLnUZTo9EkBiLOzN5qeE]"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
+	<configuration-properties doc:name="Configuration properties" doc:id="8f7538fe-2ce6-4941-b551-f22b000e494a" file="config\dev-config.yaml" />
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="1d591103-8b55-45f5-8c90-1d76143a1188" >
+		<db:generic-connection url="${db.postgres.url}" user="${db.postgres.user}" password="${secure::db.postgres.password}" driverClassName="org.postgresql.Driver"/>
+	</db:config>
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="a2a2fdca-40e0-4cc8-9e53-ce641f979398" file="config\dev-config.yaml" key="Mulesoft" >
+		<secure-properties:encrypt algorithm="Blowfish" mode="ECB" />
+	</secure-properties:config>
+</mule>
